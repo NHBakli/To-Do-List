@@ -1,0 +1,40 @@
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Montserrat", sans-serif;
+}
+
+body, p, ul, li {
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(90deg, rgb(7, 7, 9) 6.5%, rgb(27, 24, 113) 93.2%);
+}
+body main h1 {
+  text-align: center;
+}
+body main form {
+  background-color: red;
+  border-radius: 10px;
+  width: 100%;
+  height: 15vh;
+}
+body main form .container_input {
+  height: 3vh;
+  background-color: darkcyan;
+}
+body main form .container_input input {
+  border-radius: 3px;
+  outline: none;
+  border: none;
+}
+body main form .container_button input {
+  width: 100%;
+  border-radius: 3px;
+  outline: none;
+  border: none;
+}/*# sourceMappingURL=login.css.map */
