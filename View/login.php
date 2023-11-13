@@ -1,3 +1,16 @@
+<?php 
+
+include_once "../Model/login.php";
+
+$login = new LoginModel;
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $login->validateCredentials($email, $password);
+}
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
