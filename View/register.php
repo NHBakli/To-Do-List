@@ -20,8 +20,8 @@
             </div>
 
             <div class="container_button">
+                <button type="submit"><a href="index?page=home">Annuler</a></button>
                 <input type="submit" value="Valider">
-                <button type="submit"><a href="#">Annuler</a></button>
             </div>
         </form>
 

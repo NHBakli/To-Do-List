@@ -9,7 +9,7 @@
 <body>
 
     <main>
-        
+        <h1>HomePage</h1>
     </main>
     
 </body>

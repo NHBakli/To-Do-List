@@ -2,6 +2,10 @@
 
 include_once('../Model/login.php');
 
+function loginpage() {
+	require('../View/login.php');
+}
+
 class LoginController {
     private $model;
 
@@ -26,4 +30,4 @@ class LoginController {
     }
 }
 
-?>
+

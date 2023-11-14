@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </div>
 
         <div class="container_button">
-            <button type="submit"><a href="./create_account">Créer un compte</a></button>
+            <button type="submit"><a href="index?page=register">Créer un compte</a></button>
         </div>
     </main>
 
