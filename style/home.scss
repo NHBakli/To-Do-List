@@ -1,6 +1,17 @@
 @import './font';
 @import './background';
 
-h1{
-    color: white;
+
+main{
+    h1{
+        color: white;
+        text-align: center;
+    }
+    p{
+        color: white;
+        text-align: center;
+    }
+    span{
+        font-weight: bold;
+    }
 }

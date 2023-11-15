@@ -11,7 +11,8 @@
     <main>
         <h1>Register</h1>
 
-        <form action="" method="post">
+        <form action="../Controllers/register?action=register" method="post">
+        <input type="hidden" name="action" value="register">
 
             <div class="container_input">
                 <input type="text" name="username" placeholder="Pseudo">

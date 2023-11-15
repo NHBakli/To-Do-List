@@ -1,16 +1,3 @@
-<?php 
-
-include_once "../Model/login.php";
-
-$login = new LoginModel;
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-    $login->validateCredentials($email, $password);
-}
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -24,7 +11,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <main>
         <h1>Connexion</h1>
 
-        <form action="" method="post">
+        <form action="../Controllers/login?action=login" method="post">
+        <input type="hidden" name="action" value="login">
+
 
             <div class="container_input">
                 <input type="email" name="email" placeholder="Votre email">

@@ -10,6 +10,8 @@
 
     <main>
         <h1>HomePage</h1>
+
+        <p>Bienvenue <span><?=$_SESSION["username"]?></span></p>
     </main>
     
 </body>
