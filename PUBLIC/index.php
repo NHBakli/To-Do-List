@@ -1,8 +1,11 @@
 <?php 
 
+
 require_once('../Controllers/home.php');
 require_once('../Controllers/login.php');
 require_once('../Controllers/register.php');
+require_once('../Controllers/lagout.php');
+require_once('../Controllers/layout/header.php');
 
 
 // Récupérez la valeur du paramètre "page" dans l'URL
@@ -16,6 +19,10 @@ if ($page === '') {
 switch ($page) {
     case 'login':
         loginpage();
+        break;
+    
+    case 'lagout':
+        lagoutpage();
         break;
 
     case 'home':

@@ -1,0 +1,49 @@
+@import './font';
+
+$primary-color: #3498db;
+$background-color: #2c3e50;
+$text-color: #ecf0f1;
+
+header {
+    background-color: $background-color;
+    color: $text-color;
+    padding: 10px;
+    text-align: center;
+    height: 5vh;
+
+    nav {
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+        display: inline-block;
+
+        a {
+            font-size: 20px;
+            font-weight: bold;
+            text-decoration: none;
+            color: $text-color;
+
+            &:hover {
+            color: $primary-color;
+            }
+        }
+        .name{
+            border: 3px solid transparent;
+            padding: 5px;
+            
+            &:hover{
+                border-color: $primary-color;
+                cursor: pointer;
+            }
+        }
+        }
+        .container_link{
+            display: flex;
+            justify-content: space-evenly;
+        }
+    }
+    }
+}

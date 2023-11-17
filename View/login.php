@@ -7,17 +7,18 @@
     <title>Login</title>
 </head>
 <body>
+
+    <?php include('layout/header.php'); ?>
     
     <main>
-        <h1>Connexion</h1>
-
         <form action="../Controllers/login?action=login" method="post">
         <input type="hidden" name="action" value="login">
+            <h1>Connexion</h1>
 
 
             <div class="container_input">
-                <input type="email" name="email" placeholder="Votre email">
-                <input type="password" name="password" placeholder="Mot de passe">
+                <input type="email" name="email" placeholder="Votre email" required>
+                <input type="password" name="password" placeholder="Mot de passe" required>
             </div>
 
             <div class="container_button">

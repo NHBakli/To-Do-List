@@ -1,0 +1,69 @@
+@import './font';
+@import './background';
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    h1 {
+        text-align: center;
+        color: white;
+    }
+
+    p {
+        text-align: center;
+        color: white;
+    }
+    form {
+        width: 100%;
+        max-width: 400px; 
+        padding: 20px;
+        background-color: rgba(255, 255, 255, 0.8); 
+        border-radius: 10px;
+
+        .container_button {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2%;
+
+            button {
+                width: 45%;
+                padding: 10px;
+                background-color: #3498db;
+                color: #fff;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+
+                &:hover {
+                    background-color: #2980b9;
+                }
+
+                a {
+                    width: 100%;
+                    color: white;
+                    text-decoration: none;
+                    text-align: center;
+                    margin-top: 10px;
+                }
+            }
+        }
+        input{
+            width: 45%;
+            padding: 10px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+
+            &:hover {
+                background-color: #2980b9;
+            }
+        }
+    }
+}

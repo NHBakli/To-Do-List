@@ -31,8 +31,11 @@ main {
 }
 main h1 {
   text-align: center;
-  margin-bottom: 2%;
-  color: #333;
+  color: white;
+}
+main p {
+  text-align: center;
+  color: white;
 }
 main form {
   width: 100%;
@@ -41,24 +44,13 @@ main form {
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 10px;
 }
-main form .container_input {
-  margin-bottom: 3%;
+main form .container_button {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2%;
 }
-main form .container_input input {
-  width: 100%;
-  padding: 10px;
-  margin: 5px 0;
-  box-sizing: border-box;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  outline: none;
-  transition: border-color 0.3s ease;
-}
-main form .container_input input:focus {
-  border-color: #3498db;
-}
-main form .container_button input {
-  width: 100%;
+main form .container_button button {
+  width: 45%;
   padding: 10px;
   background-color: #3498db;
   color: #fff;
@@ -67,30 +59,26 @@ main form .container_button input {
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
-main form .container_button input:hover {
+main form .container_button button:hover {
   background-color: #2980b9;
 }
-main .container_line {
-  margin: 20px 0;
-}
-main .container_line p {
-  text-align: center;
-  color: white;
-}
-main .container_button button {
+main form .container_button button a {
   width: 100%;
-  padding: 10px;
-  background-color: #3498db;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-main .container_button a {
   color: white;
   text-decoration: none;
+  text-align: center;
+  margin-top: 10px;
 }
-main .container_button button:hover {
+main form input {
+  width: 45%;
+  padding: 10px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+main form input:hover {
   background-color: #2980b9;
-}/*# sourceMappingURL=login.css.map */
+}/*# sourceMappingURL=lagout.css.map */

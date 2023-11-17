@@ -1,8 +1,14 @@
-body{
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: linear-gradient(90deg,  rgba(7,7,9,1) 6.5%, rgba(27,24,113,1) 93.2% );
+    flex-direction: column; /* Ajustez la direction du flux en colonne */
+    min-height: 100vh; /* Ajustez la hauteur minimale à 100% de la hauteur de la vue */
+    background-image: linear-gradient(90deg, rgba(7, 7, 9, 1) 6.5%, rgba(27, 24, 113, 1) 93.2%);
 }
