@@ -1,0 +1,26 @@
+@import './font';
+@import './background';
+
+main{
+    h1{
+        text-align: center;
+        color: white;
+        margin-top: 2.5%;
+    }
+
+    .editable-title {
+        cursor: text;
+    }
+
+    .edit-title-input {
+        width: 100%;
+        border: none;
+        outline: none;
+        font-size: 1em;
+        text-align: center;
+        font-family: Yatra One;
+        font-weight: bold;
+        color: white;
+        background-color: transparent;
+    }
+}

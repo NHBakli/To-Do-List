@@ -5,10 +5,10 @@ include_once('../config/db.php');
 function loginpage() {
 	require('../View/login.php');
 }
+
 class LoginController{
     
     private $db;
-
 
     public function __construct($db) {
         $this->db = $db;
@@ -29,15 +29,17 @@ class LoginController{
                     break;
 
                 default:
-
+                    // Gérer les autres cas si nécessaire
                     break;
             }
         }
     }
 }
+
 $controller = new LoginController($db);
 
 if (isset($_GET['action']) && method_exists($controller, $_GET['action'])) {
     $action = $_GET['action'];
     $controller->$action();
 }
+?>

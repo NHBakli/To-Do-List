@@ -1,7 +1,16 @@
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Montserrat', sans-serif;
+@font-face {
+    font-family: 'Yatra One';
+    src: url('../asset/font/YatraOne-Regular.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'League Spartan';
+    src: url('../asset/font/LeagueSpartan-Medium.ttf') format('truetype');
 }
 
-body, p, ul, li {
-    font-family: 'Roboto', sans-serif;
+h1, h2, h3, h4, h5, h6, ul, li {
+    font-family: 'Yatra One', sans-serif;
+}
+
+body, p, a, input[type="submit"]{
+    font-family: 'League Spartan', sans-serif;
 }

@@ -15,4 +15,22 @@ main{
     span{
         font-weight: bold;
     }
+    .container_svg{
+        position: absolute;
+        bottom: 10%;
+        left: 75%;
+        right: 0%;
+        width: auto;
+        a{
+            svg{
+                max-width: 12.5%;
+                fill:   #0578e3;
+                transition: fill 0.3s ease;
+
+                &:hover{
+                    fill: #0459ad;
+                }
+            }
+        }
+    }
 }

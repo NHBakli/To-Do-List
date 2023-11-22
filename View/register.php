@@ -7,11 +7,9 @@
     <title>Register</title>
 </head>
 <body>
-
-    <?php include('layout/header.php'); ?>  
     
     <main>
-    <form action="../Controllers/register?action=register" method="post">
+    <form action="index?page=register&action=register" method="post">
     <input type="hidden" name="action" value="register">
         <h1>Register</h1>
 

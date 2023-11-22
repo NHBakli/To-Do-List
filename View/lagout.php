@@ -7,10 +7,9 @@
     <title>Déconnexion</title>
 </head>
 <body>
-    <?php include('layout/header.php'); ?>    
 
     <main>
-        <form action="../Controllers/lagout?action=lagout" method="post">
+        <form action="index?page=lagout&action=lagout" method="post">
             <h1>Déconnexion</h1>
 
             <p>Etes vous sur de vouloir vous déconnectez ?</p>

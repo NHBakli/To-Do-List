@@ -31,29 +31,21 @@ body {
 }
 
 main h1 {
+  text-align: center;
+  color: white;
   margin-top: 2.5%;
-  color: white;
-  text-align: center;
 }
-main p {
-  color: white;
-  text-align: center;
+main .editable-title {
+  cursor: text;
 }
-main span {
-  font-weight: bold;
-}
-main .container_svg {
-  position: absolute;
-  bottom: 10%;
-  left: 75%;
-  right: 0%;
+main .edit-title-input {
   width: auto;
-}
-main .container_svg a svg {
-  max-width: 12.5%;
-  fill: #0578e3;
-  transition: fill 0.3s ease;
-}
-main .container_svg a svg:hover {
-  fill: #0459ad;
-}/*# sourceMappingURL=home.css.map */
+  border: none;
+  outline: none;
+  font-size: 1em;
+  text-align: center;
+  font-family: Yatra One;
+  font-weight: bold;
+  color: white;
+  background-color: transparent;
+}/*# sourceMappingURL=list.css.map */

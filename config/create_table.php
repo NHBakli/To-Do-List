@@ -26,12 +26,29 @@ class CreateTable {
 
     }
 
+    public function createlistTable() {
+        
+        $connexion = $this->db->getConnection();
+
+        $sql = "CREATE TABLE IF NOT EXISTS list (
+            id INT(10) AUTO_INCREMENT PRIMARY KEY NOT NULL,
+            id_user INT(10),
+            title VARCHAR(255))";
+
+        if (mysqli_query($connexion, $sql)) {
+            echo '<br> La table list a été créée avec succès ! </br>';
+        } else {
+            mysqli_error($connexion, $sql);
+        }
+
+    }
+
     
 }
 
 // Usage
 $tableCreator = new CreateTable($db);
 
-$tableCreator->createUsersTable();
+$tableCreator->createlistTable();
 
 ?>

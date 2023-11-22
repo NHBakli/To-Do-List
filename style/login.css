@@ -1,10 +1,18 @@
 @charset "UTF-8";
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Montserrat", sans-serif;
+@font-face {
+  font-family: "Yatra One";
+  src: url("../asset/font/YatraOne-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "League Spartan";
+  src: url("../asset/font/LeagueSpartan-Medium.ttf") format("truetype");
+}
+h1, h2, h3, h4, h5, h6, ul, li {
+  font-family: "Yatra One", sans-serif;
 }
 
-body, p, ul, li {
-  font-family: "Roboto", sans-serif;
+body, p, a, input[type=submit] {
+  font-family: "League Spartan", sans-serif;
 }
 
 * {
@@ -57,6 +65,9 @@ main form .container_input input {
 main form .container_input input:focus {
   border-color: #3498db;
 }
+main form .container_button {
+  width: 100%;
+}
 main form .container_button input {
   width: 100%;
   padding: 10px;
@@ -76,6 +87,9 @@ main .container_line {
 main .container_line p {
   text-align: center;
   color: white;
+}
+main .container_button {
+  width: 19%;
 }
 main .container_button button {
   width: 100%;

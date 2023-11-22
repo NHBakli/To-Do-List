@@ -1,6 +1,6 @@
 <?php 
 
-session_start();
+session_reset();
 class LoginModel{
 
     private $db; 
@@ -33,6 +33,5 @@ class LoginModel{
         } else {
             $erreur = "Adresse Mail ou Mot de passe incorrect !";
         }
-        $conn->closeConnection(); 
     }
 }

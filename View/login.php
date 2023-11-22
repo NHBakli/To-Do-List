@@ -7,11 +7,9 @@
     <title>Login</title>
 </head>
 <body>
-
-    <?php include('layout/header.php'); ?>
     
     <main>
-        <form action="../Controllers/login?action=login" method="post">
+        <form action="index?page=login&action=login" method="post">
         <input type="hidden" name="action" value="login">
             <h1>Connexion</h1>
 
