@@ -2,6 +2,7 @@
 
 class HomeModel {
 
+
     public function home(){
 
     }
@@ -14,4 +15,5 @@ class HomeModel {
             return "index?page=list&action=create";
         }
     }
+    
 }

@@ -11,8 +11,11 @@ require_once('../Controllers/list.php');
 require_once('../Controllers/lagout.php');
 require_once('../Controllers/layout/header.php');
 
-include_once("../View/layout/header.php");
+include_once("../Model/list.php");
 
+$listModel = new ListModel($db);
+
+include_once("../View/layout/header.php");
 
 // Récupérez la valeur du paramètre "page" dans l'URL
 $page = isset($_GET['page']) ? $_GET['page'] : '';
@@ -37,6 +40,7 @@ switch ($page) {
 
     case 'home':
         homepage();
+        $listModel->printListUser();
         break;
 
     case 'register':
@@ -46,8 +50,6 @@ switch ($page) {
     case 'list':
         $id_task = isset($_GET['id_task']) ? $_GET['id_task'] : '';
 
-        include_once("../Model/list.php");
-        $listModel = new ListModel($db);
 
         if ($action === 'create') {
             $listModel->CreateDefaultList();

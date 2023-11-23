@@ -15,7 +15,8 @@ class ListModel{
         $conn = $this->db->getConnection();
 
         $sql = "INSERT INTO list (id_user, title) VALUES ($userId, 'Titre...')";
-        $result = mysqli_query($conn, $sql);
+
+        $result = $conn->query($sql);
 
         if ($result) {
             $listId = mysqli_insert_id($conn);
@@ -35,7 +36,7 @@ class ListModel{
         if(isset($id)){
             $sql="SELECT * FROM list WHERE id='$id'";
 
-            $result=mysqli_query($conn, $sql);
+            $result = $conn->query($sql);
 
             while ($row=mysqli_fetch_assoc($result)) {
                 echo "
@@ -63,7 +64,8 @@ class ListModel{
         $newTitle = $_POST['newTitle'];
     
         $sql = "UPDATE list SET title = '$newTitle' WHERE id = '$id'";
-        $result = mysqli_query($conn, $sql);
+
+        $result = $conn->query($sql);
     
         if ($result) {
             echo json_encode(['success' => true]);
@@ -81,7 +83,7 @@ class ListModel{
     
         $sql = "SELECT * FROM task WHERE id_list = '$id_list'";
 
-        $result = mysqli_query($conn, $sql);
+        $result = $conn->query($sql);
 
         while ($row=mysqli_fetch_assoc($result)) {
             echo "
@@ -133,7 +135,7 @@ class ListModel{
     
         $sql = "INSERT INTO task (id_list, description) VALUES ($id_list, '$description')";
 
-        $result = mysqli_query($conn, $sql);
+        $result = $conn->query($sql);
     
         if ($result) {
             header("Location: index?page=list&id=$id_list");
@@ -153,7 +155,7 @@ class ListModel{
 
         $sql = "DELETE FROM task WHERE id='$id'";
 
-        $result = mysqli_query($conn, $sql);
+        $result = $conn->query($sql);
 
         if ($result) {
             header("Location: index?page=list&id=$id_list");
@@ -174,7 +176,8 @@ class ListModel{
 
             
         $sql = "UPDATE task SET description = '$newtask' WHERE id = '$id'";
-        $result = mysqli_query($conn, $sql);
+
+        $result = $conn->query($sql);
     
         if ($result) {
             echo json_encode(['success' => true]);
@@ -182,4 +185,47 @@ class ListModel{
             echo json_encode(['success' => false]);
         }
     }
+
+    public function printListUser(){
+        
+        $conn = $this->db->getConnection();
+    
+        if(!empty($_SESSION)){
+            $id = $_SESSION['id'];
+            $sql = "SELECT * FROM list WHERE id_user = '$id'";
+            $result = $conn->query($sql);
+    
+            echo "<div class='container_all'>";
+    
+            while ($row=mysqli_fetch_assoc($result)) {
+                $id_list = $row['id'];
+                echo "
+                    <a href='index?page=list&id=$id_list' class='container_list'>
+                        <h2 class='title'>" . $row['title'] . "</h2>
+                ";
+                $this->printTaskUser($id_list);
+
+                echo "</a>";
+            }
+    
+            echo "</div>";
+    
+        } else {
+        }
+    }
+    
+    public function printTaskUser($id_list){
+
+        $conn = $this->db->getConnection();
+    
+        $sql = "SELECT * FROM task WHERE id_list = '$id_list'";
+        $result = $conn->query($sql);
+    
+        while ($row = mysqli_fetch_assoc($result)) {
+
+            echo "<p class='task'class='task'>" . $row['description'] . "</p>";
+        }
+    }
+
+
 }

@@ -16,14 +16,14 @@ main{
         font-weight: bold;
     }
     .container_svg{
-        position: absolute;
+        position: fixed;
         bottom: 10%;
-        left: 75%;
+        left: 96%;
         right: 0%;
         width: auto;
         a{
             svg{
-                max-width: 12.5%;
+                max-width: 80%;
                 fill:   #0578e3;
                 transition: fill 0.3s ease;
 
@@ -31,6 +31,42 @@ main{
                     fill: #0459ad;
                 }
             }
+        }
+    }
+}
+
+.container_all{
+    text-align: center;
+    width: 90%;
+    display: grid; 
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 3%; 
+    justify-content: center; 
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2%;
+
+    .container_list{
+        border: 4px solid #0459ad;
+        width: 100%;
+        height: 30vh;
+        margin-top: 1.4%;
+        border-radius: 15px;
+        background-color: #0578e3;
+        cursor: pointer;
+        text-decoration: none;
+
+        .title{
+            text-align: center;
+            color: white;
+            margin-top: 2%;
+            margin-bottom: 5%;
+        }
+
+        .task{
+            font-size: 1em;
+            color: white;
+            margin-bottom: 3%;
         }
     }
 }
