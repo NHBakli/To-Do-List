@@ -32,8 +32,26 @@ class CreateTable {
 
         $sql = "CREATE TABLE IF NOT EXISTS list (
             id INT(10) AUTO_INCREMENT PRIMARY KEY NOT NULL,
-            id_user INT(10),
-            title VARCHAR(255))";
+            id_user INT(10) NOT NULL,
+            title VARCHAR(255) NOT NULL)";
+
+        if (mysqli_query($connexion, $sql)) {
+            echo '<br> La table list a été créée avec succès ! </br>';
+        } else {
+            mysqli_error($connexion, $sql);
+        }
+
+    }
+
+    public function createtasksTable() {
+        
+        $connexion = $this->db->getConnection();
+
+        $sql = "CREATE TABLE IF NOT EXISTS task (
+            id INT(10) AUTO_INCREMENT PRIMARY KEY NOT NULL,
+            id_list INT(10) NOT NULL,
+            description VARCHAR(255) NOT NULL,
+            completed BOOLEAN NOT NULL DEFAULT 0)";
 
         if (mysqli_query($connexion, $sql)) {
             echo '<br> La table list a été créée avec succès ! </br>';
@@ -49,6 +67,6 @@ class CreateTable {
 // Usage
 $tableCreator = new CreateTable($db);
 
-$tableCreator->createlistTable();
+$tableCreator->createtasksTable();
 
 ?>

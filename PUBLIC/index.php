@@ -2,6 +2,8 @@
 
 session_start();
 
+ob_start();
+
 require_once('../Controllers/home.php');
 require_once('../Controllers/login.php');
 require_once('../Controllers/register.php');
@@ -42,6 +44,8 @@ switch ($page) {
         break;
 
     case 'list':
+        $id_task = isset($_GET['id_task']) ? $_GET['id_task'] : '';
+
         include_once("../Model/list.php");
         $listModel = new ListModel($db);
 
@@ -50,9 +54,19 @@ switch ($page) {
         }
         if(!empty($id)) {
             $listModel->listPageWithId();
+            $listModel->printtasks();
         }
         if(!empty($id) && ($action === 'changetitle')){
             $listModel->changeTitleList();
+        }
+        if(!empty($id) && ($action === 'createtask')){
+            $listModel->createtasks();
+        }
+        if(!empty($id) && (!empty($id_task)) && ($action === 'deletetask')){
+            $listModel->deletetask();
+        }
+        if(!empty($id) && (!empty($id_task)) && ($action === 'edittask')){
+            $listModel->editTask();
         }
         break;
 
