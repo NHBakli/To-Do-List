@@ -41,6 +41,9 @@ switch ($page) {
     case 'home':
         homepage();
         $listModel->printListUser();
+        if(!empty($id) && ($action === 'removelist')){
+            $listModel->removelist();
+        }
         break;
 
     case 'register':

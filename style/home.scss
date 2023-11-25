@@ -55,6 +55,7 @@ main{
         background-color: #0578e3;
         cursor: pointer;
         text-decoration: none;
+        position: relative;
 
         .title{
             text-align: center;
@@ -67,6 +68,12 @@ main{
             font-size: 1em;
             color: white;
             margin-bottom: 3%;
+        }
+        
+        svg {
+            position: absolute;
+            top: -8%;
+            right: -7%;
         }
     }
 }

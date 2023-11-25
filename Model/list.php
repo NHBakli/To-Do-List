@@ -91,14 +91,13 @@ class ListModel{
             <div class='task' data-task-id='" . $row['id'] . "'>";
             if ($row['completed'] === "1") {
                 echo "
-                    <input type='checkbox' class='checkbox' id='editableCheckbox" . $row['id'] . "' checked>
-                    <span class='editable-task' id='editableTask" . $row['id'] . "'>" . $row["description"] . "</span>";
+                    <input type='checkbox' class='checkbox' id='editableCheckbox" . $row['id'] . "' checked>";
             } else {
                 echo "
-                    <input type='checkbox' class='checkbox' id='editableCheckbox" . $row['id'] . "'>
-                    <span class='editable-task' id='editableTask" . $row['id'] . "'>" . $row["description"] . "</span>";
+                    <input type='checkbox' class='checkbox' id='editableCheckbox" . $row['id'] . "'>";
             }
-                echo "  <svg xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' width='100' height='100' viewBox='0 0 48 48'>
+                echo " <span class='editable-task' id='editableTask" . $row['id'] . "'>" . $row["description"] . "</span>
+                        <svg xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' width='100' height='100' viewBox='0 0 48 48'>
                         <a href='index?page=list&id=$id_list&id_task=". $row['id'] ."&action=deletetask'>
                             <linearGradient id='i9gMV8RPRiXBVRoCh9BlCa_BJkQWseLWhe4_gr1' x1='24' x2='24' y1='16.026' y2='18.015' gradientUnits='userSpaceOnUse'>
                                 <stop offset='0' stop-color='#912fbd'></stop>
@@ -209,7 +208,12 @@ class ListModel{
                 $id_list = $row['id'];
                 echo "
                     <a href='index?page=list&id=$id_list' class='container_list'>
-                        <h2 class='title'>" . $row['title'] . "</h2>
+                            <svg xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' width='50' height='50' viewBox='0 0 48 48'>
+                            <a href='index?page=home&id=$id_list&action=removelist'>
+                            <path fill='#f44336' d='M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z'></path><path fill='#fff' d='M29.656,15.516l2.828,2.828l-14.14,14.14l-2.828-2.828L29.656,15.516z'></path><path fill='#fff' d='M32.484,29.656l-2.828,2.828l-14.14-14.14l2.828-2.828L32.484,29.656z'></path>
+                            </a>
+                            </svg>
+                    <h2 class='title'>" . $row['title'] . "</h2>
                 ";
                 $this->printTaskUser($id_list);
 
@@ -231,7 +235,13 @@ class ListModel{
     
         while ($row = mysqli_fetch_assoc($result)) {
 
-            echo "<p class='task'class='task'>" . $row['description'] . "</p>";
+            $completed = $row['completed'];
+
+            if($completed === '1'){
+                echo "<p class='task' style='text-decoration: line-through;'>" . $row['description'] . "</p>";
+            }else{
+                echo "<p class='task' class='task'>" . $row['description'] . "</p>";
+            }
         }
     }
 
@@ -254,4 +264,24 @@ class ListModel{
         }
     }
 
+    public function removelist(){
+
+        $conn = $this->db->getConnection();
+    
+        $id = $_GET['id'];
+    
+        // Supprimer les tâches associées à la liste
+        $sqlDeleteTasks = "DELETE FROM task WHERE id_list = '$id'";
+        $resultDeleteTasks = $conn->query($sqlDeleteTasks);
+    
+        // Supprimer la liste
+        $sqlDeleteList = "DELETE FROM list WHERE id = '$id'";
+        $resultDeleteList = $conn->query($sqlDeleteList);
+    
+        if ($resultDeleteTasks && $resultDeleteList) {
+            header("Location: index?page=home");
+            exit();
+        } else {
+        }
+    }
 }

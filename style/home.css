@@ -78,6 +78,7 @@ main .container_svg a svg:hover {
   background-color: #0578e3;
   cursor: pointer;
   text-decoration: none;
+  position: relative;
 }
 .container_all .container_list .title {
   text-align: center;
@@ -89,4 +90,9 @@ main .container_svg a svg:hover {
   font-size: 1em;
   color: white;
   margin-bottom: 3%;
+}
+.container_all .container_list svg {
+  position: absolute;
+  top: -8%;
+  right: -7%;
 }/*# sourceMappingURL=home.css.map */
