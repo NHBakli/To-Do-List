@@ -88,9 +88,17 @@ class ListModel{
         while ($row=mysqli_fetch_assoc($result)) {
             echo "
             <div class='task-list'>
-            <div class='task' data-task-id='" . $row['id'] . "'>
-                <span class='editable-task' id='editableTask" . $row['id'] . "'>" . $row["description"] . "</span>
-                    <svg xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' width='100' height='100' viewBox='0 0 48 48'>
+            <div class='task' data-task-id='" . $row['id'] . "'>";
+            if ($row['completed'] === "1") {
+                echo "
+                    <input type='checkbox' class='checkbox' id='editableCheckbox" . $row['id'] . "' checked>
+                    <span class='editable-task' id='editableTask" . $row['id'] . "'>" . $row["description"] . "</span>";
+            } else {
+                echo "
+                    <input type='checkbox' class='checkbox' id='editableCheckbox" . $row['id'] . "'>
+                    <span class='editable-task' id='editableTask" . $row['id'] . "'>" . $row["description"] . "</span>";
+            }
+                echo "  <svg xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' width='100' height='100' viewBox='0 0 48 48'>
                         <a href='index?page=list&id=$id_list&id_task=". $row['id'] ."&action=deletetask'>
                             <linearGradient id='i9gMV8RPRiXBVRoCh9BlCa_BJkQWseLWhe4_gr1' x1='24' x2='24' y1='16.026' y2='18.015' gradientUnits='userSpaceOnUse'>
                                 <stop offset='0' stop-color='#912fbd'></stop>
@@ -187,7 +195,7 @@ class ListModel{
     }
 
     public function printListUser(){
-        
+
         $conn = $this->db->getConnection();
     
         if(!empty($_SESSION)){
@@ -227,5 +235,23 @@ class ListModel{
         }
     }
 
+    public function updateCompletedTask(){
+
+        $conn = $this->db->getConnection();
+
+        $id = $_POST['id_task'];
+
+        $completed = $_POST['completed'];
+
+        $sql = "UPDATE task SET completed = '$completed' WHERE id = '$id'";
+
+        $result = $conn->query($sql);
+
+        if($result){
+
+        }else{
+            
+        }
+    }
 
 }

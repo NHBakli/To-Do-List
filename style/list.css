@@ -73,6 +73,13 @@ main .edit-title-input {
 .task-list {
   width: 100%;
 }
+.task-list .checkbox {
+  margin-right: 3%;
+}
+.task-list span {
+  text-align: left;
+  padding-top: 0.5%;
+}
 .task-list .task {
   width: 30%;
   height: 5vh;

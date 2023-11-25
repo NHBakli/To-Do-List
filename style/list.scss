@@ -49,6 +49,15 @@ main{
 .task-list {
     width: 100%;
 
+    .checkbox{
+        margin-right: 3%;
+    }
+
+    span{
+        text-align: left;
+        padding-top: 0.5%;
+    }
+
     .task {
         width: 30%; 
         height: 5vh;

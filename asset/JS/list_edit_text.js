@@ -9,6 +9,8 @@ let taskElements = document.querySelectorAll(".editable-task");
 
 let task = document.querySelectorAll(".task");
 
+let checkbox = document.querySelectorAll(".checkbox");
+
 
 //  ↓ Title ↓
 titleElement.addEventListener("click", function() {
@@ -80,10 +82,57 @@ taskElements.forEach(function (taskElement) {
     });
 });
 
+// ↓ Checkbox ↓
+document.addEventListener('DOMContentLoaded', function () {
+    checkbox.forEach((checkbox) => {
+        let taskId = checkbox.id.replace("editableCheckbox", "");
+        let description = document.getElementById(`editableTask${taskId}`);
+
+        // Vérifiez si la case à cocher est cochée au chargement de la page
+        if (checkbox.checked) {
+            description.style.textDecoration = 'line-through';
+        }
+
+        // Ajoutez un écouteur d'événements pour gérer les changements de la case à cocher
+        checkbox.addEventListener('change', function () {
+            if (checkbox.checked) {
+                description.style.textDecoration = 'line-through';
+                updateCompleted(taskId);
+            } else {
+                description.style.textDecoration = 'none'; // Retirez le style line-through
+                updateUncompleted(taskId);
+            }
+        });
+    });
+});
 
 // ↓ Function ↓
+function updateCompleted(taskId) {
+    
+    const completed = "1";
+
+    let xhr = new XMLHttpRequest();
+
+    xhr.open("POST", `index?page=list&id=${id}&id_task=${taskId}&action=updatecompleted`, true);
+
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+    xhr.send(`id_task=${taskId}&completed=${completed}`);
+}
+
+function updateUncompleted(taskId) {
+
+    const completed = "0";
+
+    let xhr = new XMLHttpRequest();
+
+    xhr.open("POST", `index?page=list&id=${id}&id_task=${taskId}&action=updatecompleted`, true);
+
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+    xhr.send(`id_task=${taskId}&completed=${completed}`);
+}
+
 function isTextSelected() {
     return window.getSelection().toString().length > 0;
 }
-
-

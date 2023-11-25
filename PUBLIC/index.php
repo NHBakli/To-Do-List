@@ -50,7 +50,6 @@ switch ($page) {
     case 'list':
         $id_task = isset($_GET['id_task']) ? $_GET['id_task'] : '';
 
-
         if ($action === 'create') {
             $listModel->CreateDefaultList();
         }
@@ -69,6 +68,9 @@ switch ($page) {
         }
         if(!empty($id) && (!empty($id_task)) && ($action === 'edittask')){
             $listModel->editTask();
+        }
+        if(!empty($id) && (!empty($id_task)) && ($action === 'updatecompleted')){
+            $listModel->updateCompletedTask();
         }
         break;
 
