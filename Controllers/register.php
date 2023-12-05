@@ -25,14 +25,12 @@ class RegisterController{
 
             switch ($action) {
                 case 'register':
-                    $username = $_POST['username'];
-                    $email = $_POST['email'];
-                    $password = $_POST['password'];
+                    $username = htmlspecialchars($_POST['username'], ENT_QUOTES, 'UTF-8');
+                    $email = htmlspecialchars($_POST['email'], ENT_QUOTES, 'UTF-8');
+                    $password = $_POST['password'];              
                     $register->createAccount($username, $email, $password);
                     break;
-                // Ajoutez d'autres actions au besoin
                 default:
-                    // Action par défaut si aucune correspondance n'est trouvée
                     break;
             }
         }

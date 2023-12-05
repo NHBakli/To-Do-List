@@ -47,7 +47,7 @@ titleElement.addEventListener("click", function() {
 });
 
 // ↓ Task ↓
-taskElements.forEach(function (taskElement) {
+taskElements.forEach((taskElement) => {
     taskElement.addEventListener("click", function () {
         if (!isTextSelected()) {
             let currentTask = taskElement.innerText.trim();
@@ -81,6 +81,7 @@ taskElements.forEach(function (taskElement) {
         }
     });
 });
+
 
 // ↓ Checkbox ↓
 document.addEventListener('DOMContentLoaded', function () {

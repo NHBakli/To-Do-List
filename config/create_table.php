@@ -50,7 +50,7 @@ class CreateTable {
         $sql = "CREATE TABLE IF NOT EXISTS task (
             id INT(10) AUTO_INCREMENT PRIMARY KEY NOT NULL,
             id_list INT(10) NOT NULL,
-            description VARCHAR(255) NOT NULL,
+            description text NOT NULL,
             completed BOOLEAN NOT NULL DEFAULT 0)";
 
         if (mysqli_query($connexion, $sql)) {
@@ -69,4 +69,3 @@ $tableCreator = new CreateTable($db);
 
 $tableCreator->createtasksTable();
 
-?>

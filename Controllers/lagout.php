@@ -8,10 +8,12 @@ function lagoutpage() {
 
 class LogoutController {
     
-    public function lagout() {
-        $lagoutModel = new LagoutModel;
-        $lagoutModel->lagout();
+    public function lagout(){
+        session_unset();
+        header("Location: ../PUBLIC/index"); 
+        exit();
     }
+
 }
 
 $lagoutController = new LogoutController;

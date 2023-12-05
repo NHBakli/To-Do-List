@@ -23,13 +23,12 @@ class LoginController{
 
             switch ($action) {
                 case 'login':
-                    $email = $_POST['email'];
+                    $email = htmlspecialchars($_POST['email'], ENT_QUOTES, 'UTF-8');
                     $password = $_POST['password'];
                     $login->validLogin($email, $password);
                     break;
 
                 default:
-                    // Gérer les autres cas si nécessaire
                     break;
             }
         }

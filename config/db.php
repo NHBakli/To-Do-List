@@ -13,10 +13,12 @@ class Connexion {
         $this->password = $password;
         $this->database = $database;
 
-        $this->conn = new mysqli($this->host, $this->username, $this->password, $this->database);
-
-        if ($this->conn->connect_error) {
-            die("Connection failed: " . $this->conn->connect_error);
+        try {
+            $dsn = "mysql:host={$this->host};dbname={$this->database}";
+            $this->conn = new PDO($dsn, $this->username, $this->password);
+            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch (PDOException $e) {
+            die("Connection failed: " . $e->getMessage());
         }
     }
 
@@ -26,4 +28,4 @@ class Connexion {
 }
 
 $db = new Connexion('localhost', 'root', '', 'to_do_list');
-
+$pdo = $db->getConnection();
